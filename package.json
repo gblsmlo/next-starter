@@ -1,27 +1,62 @@
 {
-  "name": "bai-app",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
-  },
-  "dependencies": {
-    "next": "16.2.2",
-    "react": "19.2.4",
-    "react-dom": "19.2.4"
-  },
-  "devDependencies": {
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "babel-plugin-react-compiler": "1.0.0",
-    "eslint": "^9",
-    "eslint-config-next": "16.2.2",
-    "tailwindcss": "^4",
-    "typescript": "^5"
-  }
+	"name": "bai-app",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "biome check --write .",
+		"lint:format": "biome format --write .",
+		"lint:ci": "biome ci .",
+		"lint:staged": "biome check --staged --write .",
+		"lint:unsafe": "biome check --unsafe --write .",
+		"test": "vitest",
+		"test:run": "vitest run",
+		"test:ui": "vitest --ui",
+		"prepare": "husky",
+		"commit": "czg"
+	},
+	"config": {
+		"commitizen": {
+			"path": "node_modules/cz-git",
+			"useEmoji": true
+		}
+	},
+	"lint-staged": {
+		"*.{ts,tsx,js,jsx,json}": [
+			"pnpm lint:staged"
+		]
+	},
+	"dependencies": {
+		"@t3-oss/env-nextjs": "^0.13.11",
+		"next": "16.2.2",
+		"react": "19.2.4",
+		"react-dom": "19.2.4",
+		"zod": "^4.3.6"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.4.10",
+		"@commitlint/cli": "^20.5.0",
+		"@commitlint/config-conventional": "^20.5.0",
+		"@commitlint/types": "^20.5.0",
+		"@tailwindcss/postcss": "^4",
+		"@testing-library/dom": "^10.4.1",
+		"@testing-library/jest-dom": "^6.9.1",
+		"@testing-library/react": "^16.3.2",
+		"@types/node": "^20",
+		"@types/react": "^19",
+		"@types/react-dom": "^19",
+		"@vitejs/plugin-react": "^6.0.1",
+		"babel-plugin-react-compiler": "1.0.0",
+		"cz-git": "^1.12.0",
+		"czg": "^1.12.0",
+		"happy-dom": "^20.8.9",
+		"husky": "^9.1.7",
+		"jsdom": "^29.0.1",
+		"lint-staged": "^16.4.0",
+		"tailwindcss": "^4",
+		"typescript": "^5",
+		"vitest": "^4.1.2"
+	}
 }

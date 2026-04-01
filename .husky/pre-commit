@@ -1,0 +1,14 @@
+#!/bin/sh
+# Pre-commit hook with error handling
+
+if ! pnpm lint-staged; then
+  echo ""
+  echo "❌ Pre-commit checks failed. Please fix the issues above and try again."
+  echo "💡 You can run 'pnpm lint' to fix issues automatically."
+  echo ""
+  exit 1
+fi
+
+echo ""
+echo "✅ Pre-commit checks passed!"
+echo ""
